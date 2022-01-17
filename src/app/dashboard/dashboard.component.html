@@ -1,0 +1,72 @@
+<mat-toolbar class="mat-elevation-z8">
+    <mat-toolbar-row class="justify-content-between">
+        <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+            <mat-icon *ngIf="!sidenav.opened">
+                menu
+            </mat-icon>
+            <mat-icon *ngIf="sidenav.opened">
+                close
+            </mat-icon>
+        </button>
+        Contacts Manager
+        <div class="row mr-2 ml-auto">
+            <ul>
+                <li>
+                    <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
+                        <img src="favicon.ico" alt="" class="user-image mr-1 p-2">
+                        User Name
+                        <mat-icon class="user-image-icon ml-1">arrow_drop_down</mat-icon>
+                    </button>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                            <mat-icon>exit_to_app</mat-icon>
+                            Logout
+                        </button>
+                    </mat-menu>
+                </li>
+            </ul>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+        <h4 class="name">Employee</h4>
+
+        <mat-divider></mat-divider>
+
+        <a routerLink="dashboard">
+            <button mat-button class="menu-button">
+                <mat-icon>home</mat-icon>
+                <span>Home</span>
+            </button>
+        </a>
+        <a routerLink="groups">
+            <button mat-button class="menu-button">
+                <mat-icon>group</mat-icon>
+                <span>My Groups</span>
+            </button>
+        </a>
+        <a routerLink="contacts">
+            <button mat-button class="menu-button">
+                <mat-icon>contacts</mat-icon>
+                <span>My contacts</span>
+            </button>
+        </a>
+
+        <mat-divider></mat-divider>
+
+        <button mat-button class="menu-button">
+            <mat-icon>help</mat-icon>
+            <span>Help</span>
+        </button>
+
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div class="content mat-elevation-z8">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+    
+</mat-sidenav-container>
