@@ -1,4 +1,6 @@
-<div *ngIf="authenticationService.isAuthenticated">
+<div *ngIf="authenticationService.isAuthenticated else elseBlock">
     <app-dashboard></app-dashboard>
 </div>
-<router-outlet></router-outlet>
+<ng-template #elseBlock>
+    <router-outlet></router-outlet>
+</ng-template>

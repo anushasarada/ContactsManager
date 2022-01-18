@@ -1,0 +1,17 @@
+<mat-grid-list cols="4" gutterSïze="10px">
+    <mat-grid-tile *ngFor="let group of groups">
+        <mat-card class="mat-elevation-z4">
+            <mat-card-header>
+              <mat-card-title>{{group.name}}</mat-card-title>
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{group.numContacts}} Contacts</p>  
+                <p>Status:{{group.status}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-button>pageview</button>
+              <button mat-button>delete_outline</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-grid-tile>
+</mat-grid-list>
