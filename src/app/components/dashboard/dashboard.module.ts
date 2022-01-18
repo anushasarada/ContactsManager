@@ -2,14 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { HomeComponent } from './dashboard/home/home.component';
-import { GroupsComponent } from './dashboard/groups/groups.component';
-import { ContactsComponent } from './dashboard/contacts/contacts.component';
+import { DashboardComponent } from './dashboard.component';
+import { HomeComponent } from './home/home.component';
+import { GroupsComponent } from './groups/groups.component';
+import { ContactsComponent } from './contacts/contacts.component';
+import { AddGroupComponent } from './add-group/add-group.component';
 
 @NgModule({
-  declarations: [DashboardComponent, HomeComponent, GroupsComponent, ContactsComponent],
+  declarations: [DashboardComponent, HomeComponent, GroupsComponent, ContactsComponent, AddGroupComponent],
   imports: [
     CommonModule,
     HttpClientModule,
@@ -17,7 +18,7 @@ import { ContactsComponent } from './dashboard/contacts/contacts.component';
     FormsModule
   ],
   exports: [
-    DashboardComponent
+    DashboardComponent,
   ],
   providers: [
   ]

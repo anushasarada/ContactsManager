@@ -37,22 +37,40 @@
 
         <mat-divider></mat-divider>
 
-        <a routerLink="dashboard">
+        <a routerLink="home">
             <button mat-button class="menu-button">
                 <mat-icon>home</mat-icon>
                 <span>Home</span>
             </button>
         </a>
+        
+        <mat-divider></mat-divider>
+
         <a routerLink="groups">
             <button mat-button class="menu-button">
                 <mat-icon>group</mat-icon>
                 <span>My Groups</span>
             </button>
         </a>
+        <a routerLink="add-group">
+            <button mat-button class="menu-button">
+                <mat-icon>group_add</mat-icon>
+                <span>Create Group</span>
+            </button>
+        </a>
+        
+        <mat-divider></mat-divider>
+
         <a routerLink="contacts">
             <button mat-button class="menu-button">
                 <mat-icon>contacts</mat-icon>
                 <span>My contacts</span>
+            </button>
+        </a>
+        <a routerLink="contacts">
+            <button mat-button class="menu-button">
+                <mat-icon>person_add</mat-icon>
+                <span>Create Contact</span>
             </button>
         </a>
 
@@ -64,8 +82,8 @@
         </button>
 
     </mat-sidenav>
-    <mat-sidenav-content >
-        <div class="content mat-elevation-z8">
+    <mat-sidenav-content>
+        <div class="sidenavcontentstyle">
             <router-outlet></router-outlet>
         </div>
     </mat-sidenav-content>

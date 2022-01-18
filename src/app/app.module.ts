@@ -53,7 +53,7 @@ import { HomeComponent } from './components/dashboard/home/home.component';
     MatDividerModule,
     MatListModule,
     MatMenuModule,
-    MatGridListModule
+    MatGridListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

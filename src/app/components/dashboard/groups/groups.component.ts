@@ -34,6 +34,75 @@ export class GroupsComponent implements OnInit {
         "name":"Group Four",
         "numContacts":20,
         "status":"active"
+      },{
+        "id": 4387,
+        "name":"Group One",
+        "numContacts":12,
+        "status":"active"
+      },
+      {
+        "id": 4388,
+        "name":"Group Two",
+        "numContacts":15,
+        "status":"active"
+      },
+      {
+        "id": 4389,
+        "name":"Group Three",
+        "numContacts":8,
+        "status":"inactive"
+      },
+      {
+        "id": 4390,
+        "name":"Group Four",
+        "numContacts":20,
+        "status":"active"
+      },{
+        "id": 4387,
+        "name":"Group One",
+        "numContacts":12,
+        "status":"active"
+      },
+      {
+        "id": 4388,
+        "name":"Group Two",
+        "numContacts":15,
+        "status":"active"
+      },
+      {
+        "id": 4389,
+        "name":"Group Three",
+        "numContacts":8,
+        "status":"inactive"
+      },
+      {
+        "id": 4390,
+        "name":"Group Four",
+        "numContacts":20,
+        "status":"active"
+      },{
+        "id": 4387,
+        "name":"Group One",
+        "numContacts":12,
+        "status":"active"
+      },
+      {
+        "id": 4388,
+        "name":"Group Two",
+        "numContacts":15,
+        "status":"active"
+      },
+      {
+        "id": 4389,
+        "name":"Group Three",
+        "numContacts":8,
+        "status":"inactive"
+      },
+      {
+        "id": 4390,
+        "name":"Group Four",
+        "numContacts":20,
+        "status":"active"
       }
     ]
    }
