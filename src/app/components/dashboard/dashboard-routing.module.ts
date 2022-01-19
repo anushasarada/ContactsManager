@@ -7,10 +7,10 @@ import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
-  {path: 'dashboard', component: DashboardComponent},
-  {path: 'dashboard/home', component:HomeComponent},
-  {path: 'dashboard/groups', component:GroupsComponent},
-  {path: 'dashboard/contacts', component:ContactsComponent},
+  // {path: 'dashboard', component: DashboardComponent},
+  // {path: 'dashboard/home', component:HomeComponent},
+  // {path: 'dashboard/groups', component:GroupsComponent},
+  // {path: 'dashboard/contacts', component:ContactsComponent},
 ];
 
 @NgModule({

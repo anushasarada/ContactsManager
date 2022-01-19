@@ -1,0 +1,65 @@
+<mat-card class="mat-elevation-z12">
+  <div *ngIf="!submitted">  
+    <div class="form-group">
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="First Name" name="title" [(ngModel)]="contact.firstname" required>
+          <mat-icon matSuffix>title</mat-icon>
+        </mat-form-field> &nbsp; &nbsp; &nbsp;
+        <mat-form-field>
+          <input matInput placeholder="Last Name" name="title" [(ngModel)]="contact.lastname" required>
+          <mat-icon matSuffix>title</mat-icon>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Phone" name="title" [(ngModel)]="contact.phone" type="number" required>
+          <mat-icon matSuffix>phone</mat-icon>
+        </mat-form-field> &nbsp; &nbsp; &nbsp;
+        <mat-form-field>
+          <input matInput placeholder="Email" name="title" [(ngModel)]="contact.email" required>
+          <mat-icon matSuffix>email</mat-icon>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Address Line 1" name="title" [(ngModel)]="contact.address1" required>
+          <mat-icon matSuffix>home</mat-icon>
+        </mat-form-field> &nbsp; &nbsp; &nbsp;
+        <mat-form-field>
+          <input matInput placeholder="Address Line 2" name="title" [(ngModel)]="contact.address2" required>
+          <mat-icon matSuffix>home</mat-icon>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="City" name="title" [(ngModel)]="contact.city" required>
+          <mat-icon matSuffix>location_city</mat-icon>
+        </mat-form-field> &nbsp; &nbsp; &nbsp;
+        <mat-form-field>
+          <input matInput placeholder="State" name="title" [(ngModel)]="contact.state" required>
+          <mat-icon matSuffix>location_city</mat-icon>
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field>
+          <input matInput placeholder="Country" name="title" [(ngModel)]="contact.country" required>
+          <mat-icon matSuffix>location_city</mat-icon>
+        </mat-form-field> &nbsp; &nbsp; &nbsp;
+        <mat-form-field>
+          <input matInput placeholder="Zipcode" name="title" [(ngModel)]="contact.zipcode" type="number" required>
+          <mat-icon matSuffix>title</mat-icon>
+        </mat-form-field>
+      </div>
+      <button (click)="saveContact()" mat-raised-button color="primary" class="login-button">
+        Submit
+      </button>
+    </div>
+  </div>
+  <div *ngIf="submitted">
+    <h7>Contact has been created successfully !</h7>
+    <button mat-raised-button color="primary" class="login-button" (click)="newContact()">
+    Create new Contact
+    </button>
+  </div>
+</mat-card>

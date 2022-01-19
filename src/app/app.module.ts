@@ -22,22 +22,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { RegisterUserComponent } from './components/register-user/register-user.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { GroupsComponent } from './components/dashboard/groups/groups.component';
-import { ContactsComponent } from './components/dashboard/contacts/contacts.component';
-import { HomeComponent } from './components/dashboard/home/home.component';
+import { DashboardModule } from './components/dashboard/dashboard.module';
+import { AddContactComponent } from './components/dashboard/add-contact/add-contact.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterUserComponent,
     DashboardComponent,
-    GroupsComponent,
-    ContactsComponent,
-    HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    AddContactComponent
   ],
   imports: [
     BrowserModule,
+    DashboardModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     FormsModule,

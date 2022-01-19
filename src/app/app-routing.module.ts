@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AddContactComponent } from './components/dashboard/add-contact/add-contact.component';
 import { AddGroupComponent } from './components/dashboard/add-group/add-group.component';
 import { ContactsComponent } from './components/dashboard/contacts/contacts.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -24,7 +25,10 @@ const routes: Routes = [
       },
       {
         path:'contacts', component: ContactsComponent
-      }
+      },
+      {
+        path:'add-contact', component: AddContactComponent
+      },
     ]
   },
   // {path: 'groups', component: GroupsComponent},

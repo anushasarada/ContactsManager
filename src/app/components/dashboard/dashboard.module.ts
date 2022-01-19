@@ -9,18 +9,45 @@ import { GroupsComponent } from './groups/groups.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AddGroupComponent } from './add-group/add-group.component';
 
+
+import {MatCardModule} from '@angular/material/card'
+import {MatTabsModule} from '@angular/material/tabs'
+import {MatFormFieldModule} from '@angular/material/form-field'
+import {MatInputModule} from '@angular/material/input'
+import {MatButtonModule} from '@angular/material/button'
+import {MatCheckboxModule} from '@angular/material/checkbox'
+import {MatIconModule} from '@angular/material/icon'
+import {MatToolbarModule} from '@angular/material/toolbar'
+import {MatSidenavModule} from '@angular/material/sidenav'
+import {MatDividerModule} from '@angular/material/divider'
+import {MatListModule} from '@angular/material/list'
+import {MatMenuModule} from '@angular/material/menu'
+import {MatGridListModule} from '@angular/material/grid-list'
+
 @NgModule({
-  declarations: [DashboardComponent, HomeComponent, GroupsComponent, ContactsComponent, AddGroupComponent],
+  declarations: [HomeComponent, GroupsComponent, ContactsComponent, AddGroupComponent],
   imports: [
     CommonModule,
     HttpClientModule,
     DashboardRoutingModule,
-    FormsModule
+    FormsModule,
+    MatCardModule,
+    MatTabsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatIconModule,    
+    MatToolbarModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatListModule,
+    MatMenuModule,
+    MatGridListModule,
   ],
   exports: [
-    DashboardComponent,
   ],
   providers: [
   ]
 })
-export class MoviesModule { }
+export class DashboardModule { }
