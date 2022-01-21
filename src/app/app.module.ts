@@ -25,6 +25,9 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DashboardModule } from './components/dashboard/dashboard.module';
 import { AddContactComponent } from './components/dashboard/add-contact/add-contact.component';
 
+import { HttpClientModule } from '@angular/common/http';
+//import {authInterceptorProviders} from './_helpers/auth.intercetor'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +55,7 @@ import { AddContactComponent } from './components/dashboard/add-contact/add-cont
     MatListModule,
     MatMenuModule,
     MatGridListModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PageEvent } from '@angular/material/paginator';
 import { ActivatedRoute } from '@angular/router';
 import { Contact } from 'src/app/models/contact/contact.model';
 import { ContactService } from 'src/app/services/contact/contact.service';
@@ -10,12 +11,11 @@ import { ContactService } from 'src/app/services/contact/contact.service';
 })
 export class ContactsComponent implements OnInit {
 
-  //contacts: any
-
   contacts?: Contact[];
   currentContact: Contact = {};
   currentIndex = -1;
   firstname = '';
+  pageSlice = []
 
   constructor(private contactService: ContactService){}
 
@@ -27,6 +27,7 @@ export class ContactsComponent implements OnInit {
     this.contactService.getAll().subscribe({
       next: (data) => {
         this.contacts = data;
+        this.pageSlice = data.slice(0,5);
       },
       error: (e) => console.error(e)
     });
@@ -58,11 +59,20 @@ export class ContactsComponent implements OnInit {
     console.log("Attempted Search")
     this.contactService.findByName(this.firstname).subscribe({
       next: (data) => {
-        console.log(this.firstname, data)
         this.contacts = data;
+        this.pageSlice = data.slice(0,5);
       },
       error: (e) => console.error(e)
     });
+  }
+
+  OnPageChange(event: PageEvent){
+    const startIndex = event.pageIndex * event.pageSize;
+    let endIndex = startIndex + event.pageSize;
+    if(endIndex > this.contacts.length){
+      endIndex = this.contacts.length;
+    }
+    this.pageSlice = this.contacts.slice(startIndex, endIndex)
   }
 
 }

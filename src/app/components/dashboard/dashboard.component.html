@@ -84,7 +84,14 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <div class="sidenavcontentstyle">
+            <div *ngIf="isCurrentRouteDashboard">
+                <!-- <app-home></app-home> -->
+            </div>
+            <div *ngIf="!isCurrentRouteDashboard">
+                <router-outlet></router-outlet>
+            </div>
             <router-outlet></router-outlet>
+            <!-- <app-home></app-home> -->
         </div>
     </mat-sidenav-content>
     

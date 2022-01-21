@@ -23,13 +23,13 @@ import {MatDividerModule} from '@angular/material/divider'
 import {MatListModule} from '@angular/material/list'
 import {MatMenuModule} from '@angular/material/menu'
 import {MatGridListModule} from '@angular/material/grid-list'
+import {MatPaginatorModule} from  '@angular/material/paginator'
 
 @NgModule({
   declarations: [HomeComponent, GroupsComponent, ContactsComponent, AddGroupComponent],
   imports: [
     CommonModule,
     HttpClientModule,
-    DashboardRoutingModule,
     FormsModule,
     MatCardModule,
     MatTabsModule,
@@ -44,6 +44,7 @@ import {MatGridListModule} from '@angular/material/grid-list'
     MatListModule,
     MatMenuModule,
     MatGridListModule,
+    MatPaginatorModule
   ],
   exports: [
   ],

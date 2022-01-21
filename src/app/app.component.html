@@ -1,6 +1,15 @@
-<div *ngIf="authenticationService.isAuthenticated else elseBlock">
+<!-- <div *ngIf="authenticationService.isAuthenticated else elseBlock">
     <app-dashboard></app-dashboard>
 </div>
 <ng-template #elseBlock>
     <router-outlet></router-outlet>
-</ng-template>
+</ng-template>  -->
+
+<div *ngIf="isLoggedIn else elseBlock">
+    <!-- <app-dashboard></app-dashboard>  -->
+    <router-outlet></router-outlet>
+</div>
+<ng-template #elseBlock>
+    <!-- <router-outlet></router-outlet> --> 
+    <app-register-user></app-register-user>
+</ng-template> 

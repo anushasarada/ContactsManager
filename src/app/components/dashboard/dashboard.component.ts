@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { MatSidenav } from '@angular/material/sidenav';
 import { delay } from 'rxjs/operators';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,12 +11,18 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  ngOnInit() {
-  }
+
+  isCurrentRouteDashboard: boolean
+  ngOnInit() { }
   @ViewChild(MatSidenav, null)
   sidenav!: MatSidenav;
 
-  constructor(private observer: BreakpointObserver,private route: ActivatedRoute) {}
+  constructor(private observer: BreakpointObserver, private route: ActivatedRoute, private router: Router){
+    if(route.snapshot.url[0].path === 'dashboard'){
+        this.isCurrentRouteDashboard = true
+        //router.navigate['home'] is not working 
+    }
+  }
 
   ngAfterViewInit() {
     this.observer

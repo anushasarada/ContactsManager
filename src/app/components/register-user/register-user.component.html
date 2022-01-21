@@ -4,28 +4,16 @@
     <mat-tab-group>
       <mat-tab label="Login">
           <mat-card-content>
-            <form action="" (ngSubmit)="onSubmit(signInForm)" #signInForm="ngForm">
+            <form action="" *ngIf="!isLoggedIn" name="loginFormName" (ngSubmit)="onLoginSubmit(loginForm)" #loginForm="ngForm">
+              
               <mat-form-field>
-                <input
-                  matInput
-                  placeholder="Email"
-                  required
-                  name="email"
-                  ngModel
-                  #email="ngModel">
+                <input matInput placeholder="Email" name="email" type="email" ngModel #email="ngModel" required/>
                   <mat-error *ngIf="email.invalid">Email is required</mat-error>
                 <mat-icon matSuffix>email</mat-icon>
               </mat-form-field>
+              
               <mat-form-field>
-                <input
-                  matInput
-                  placeholder="Password"
-                  type="password"
-                  required
-                  minlength="6"
-                  name="password"
-                  ngModel
-                  #password="ngModel">
+                <input matInput placeholder="Password" type="password" minlength="6" name="password" ngModel #password="ngModel" required>
                   <mat-error
                     *ngIf="password.errors && password.errors.required">
                     Password is required
@@ -37,43 +25,55 @@
                 <mat-icon matSuffix>lock</mat-icon>
               </mat-form-field>
               <!-- <mat-checkbox>Remember Me!</mat-checkbox> -->
-              <button
-                mat-raised-button
-                color="primary"
-                class="login-button">
-                Submit
-              </button>
+              <button mat-raised-button color="primary" class="login-button"> Submit </button>
             </form>
+            <div class="form-group">
+              <div class="alert alert-danger" role="alert" *ngIf="isLoginFailed"> Login failed: {{loginErrorMessage}}</div>
+            </div>
           </mat-card-content>
       </mat-tab>
       <mat-tab label="Sign Up">
         <mat-card-content>
-          <form action="">
+          <form name="signUpForm" action="" (ngSubmit)="onSubmit(signUpForm)" #signUpForm="ngForm" novalidate>
             <mat-form-field>
               <input
                 matInput
-                placeholder="User Name"
-                required
-                name="username"
-                ngModel
-                #username="ngModel">
+                placeholder="First Name"
+                name="firstname"
+                [(ngModel)]="signUpForm.firstname"
+                minlength="3"
+                #username="ngModel"
+                required>
               <mat-icon matSuffix>perm_identity</mat-icon>
-              <mat-error
-                *ngIf="username.invalid">
-                Username is required
-              </mat-error>
-
+                <mat-error *ngIf="username.errors['required']"> Firstname is required </mat-error>
+                <mat-error *ngIf="username.errors['minlength']"> Firstname must be atleast 3 charaters </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input
+                matInput
+                placeholder="Last Name"
+                name="lastname"
+                [(ngModel)]="signUpForm.lastname"
+                required
+                minlength="3"
+                #username="ngModel"/>
+              <mat-icon matSuffix>perm_identity</mat-icon>
+              <mat-error *ngIf="username.errors['required']"> Lastname is required </mat-error>
+              <mat-error *ngIf="username.errors['minlength']"> Lastname must be atleast 3 charaters </mat-error>
             </mat-form-field>
             <mat-form-field>
               <input
                 matInput
                 placeholder="Email"
+                type="email"
                 required
                 name="email"
-                ngModel
-                #email="ngModel">
-                <mat-error *ngIf="email.invalid">Email is required</mat-error>
+                [(ngModel)]="signUpForm.email"
+                email
+                #email="ngModel"/>
               <mat-icon matSuffix>email</mat-icon>
+              <mat-error *ngIf="email.errors['requiured']">Email is required</mat-error>
+              <mat-error *ngIf="email.errors['email']">Email must be a valid email address</mat-error>
             </mat-form-field>
             <mat-form-field>
               <input
@@ -83,18 +83,11 @@
                 required
                 minlength="6"
                 name="password"
-                ngModel
-                #password="ngModel">
-                <mat-error
-                  *ngIf="password.errors && password.errors.required">
-                  Password is required
-                </mat-error>
-                <mat-error
-                  *ngIf="password.errors && password.errors.minlength">
-                  Password must be of length 6
-                </mat-error>
+                [(ngModel)]="signUpForm.password"
+                #password="ngModel"/>
               <mat-icon matSuffix>lock</mat-icon>
-
+              <mat-error *ngIf="password.errors['required']">Password is required</mat-error>
+              <mat-error *ngIf="password.errors['minlength']">Password must have atleast 6 characters</mat-error>
             </mat-form-field>
             <mat-form-field>
                 <input
@@ -106,19 +99,18 @@
                 name="repassword"
                 ngModel
                 #repassword="ngModel">
-                <mat-error
-                  *ngIf="repassword.errors && repassword.errors.required">
-                  Re-Enter Password is required
-                </mat-error>
-              <mat-icon matSuffix>lock</mat-icon>
+                <mat-icon matSuffix>lock</mat-icon>
+                <mat-error *ngIf="repassword.errors['required']">Password is required</mat-error>
+                <mat-error *ngIf="repassword.errors['minlength']">Password must have atleast 6 characters</mat-error>
             </mat-form-field>
-            <button
-              mat-raised-button
-              color="primary"
-              class="login-button">
-              Sign Up
-            </button>
+            <button mat-raised-button color="primary" class="login-button"> Submit </button>
           </form>
+          <div class="alert alert-warning" *ngIf="isSignUpFailed">
+            Signup failed!<br/>{{errorMessage}}
+          </div>
+          <div class="alert alert-success" *ngIf="isSuccessful">
+            Your registration is successful!
+          </div>
         </mat-card-content>
       </mat-tab>
     </mat-tab-group>
