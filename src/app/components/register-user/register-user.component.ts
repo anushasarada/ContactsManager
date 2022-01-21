@@ -25,7 +25,7 @@ export class RegisterUserComponent implements OnInit {
     email: null,
     password: null
   };
-  isSuccessful = false;
+  isRegistered = false;
   isSignUpFailed = false;
   errorMessage = '';
 
@@ -38,10 +38,14 @@ export class RegisterUserComponent implements OnInit {
       this.roles = this.tokenService.getUser().roles;
     }
   }
+
   onLoginSubmit(loginForm: NgForm){
 
     const email = loginForm.value.email
     const password = loginForm.value.password
+
+    console.log("login form data")
+    console.log(email,password)
     
     this.authenticationService.login(email, password).subscribe({
       next: data => {
@@ -51,10 +55,14 @@ export class RegisterUserComponent implements OnInit {
         this.roles = this.tokenService.getUser().roles;
         this.router.navigate(['dashboard'])
         this.reloadPage()
+        console.log("login success data")
+        console.log(data)
       },
       error: err => {
-        this.loginErrorMessage = err.console.error.message;
+        console.log(err)
+        this.loginErrorMessage = err.error.message;
         this.isLoginFailed = true;
+        console.log(this.loginErrorMessage)
       }
     });
   }
@@ -65,14 +73,15 @@ export class RegisterUserComponent implements OnInit {
   
   onSubmit(signUpForm: NgForm){
 
-    //const signInData = new SignInData(signInForm.value.email, signInForm.value.password);
-    //this.authenticationService.authenticate(signInData)
+    const firstname = signUpForm.value.firstname
+    const lastname = signUpForm.value.lastname
+    const email = signUpForm.value.email
+    const password = signUpForm.value.password
 
-    const {email, password} = this.signUpForm;
     this.authenticationService.register(email, password).subscribe({
       next: data => {
         console.log(data);
-        this.isSuccessful = true;
+        this.isRegistered = true;
         this.isSignUpFailed = false;
       },
       error: err => {
@@ -82,4 +91,15 @@ export class RegisterUserComponent implements OnInit {
       }
     });
   }
+
+  // onLoginTabClicked(){
+  //   this.loginErrorMessage = '';
+  //   this.reloadPage()
+  // }
+
+  // onSubmitTabClicked(){
+  //   this.errorMessage = '';
+  //   this.reloadPage()
+  // }
+  //relaodpage is not working
 } 

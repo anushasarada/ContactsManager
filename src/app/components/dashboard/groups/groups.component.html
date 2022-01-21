@@ -1,12 +1,35 @@
+<mat-card class="mat-elevation-z12" style="margin-bottom: 5px;">
+  <div class="container">
+    <div class="row">
+      <div class="col">        
+        <mat-form-field>
+          <input matInput placeholder="Search by Group title" name="title" [(ngModel)]="title">
+          <mat-icon matSuffix>search</mat-icon>
+        </mat-form-field> &nbsp;
+        <button (click)="searchName()" mat-raised-button color="primary" class="login-button">
+          Search
+        </button>
+      </div>
+      <div class="col">
+        <mat-paginator [length]="this.groups.length"
+            [pageSize]="5"
+            [pageSizeOptions]="[5, 10, 25, 100]"
+            (page)="OnPageChange($event)"
+            aria-label="Select page" style="width:390px">
+        </mat-paginator>
+      </div>
+    </div>
+  </div>
+</mat-card>
 <mat-grid-list cols="4" gutterSïze="5px" class="mat-elevation-z5">
     <mat-grid-tile *ngFor="let group of groups">
         <mat-card class="mat-elevation-z4">
             <mat-card-header>
-              <mat-card-title>{{group.name}}</mat-card-title>
+              <mat-card-title>{{group.title}}</mat-card-title>
             </mat-card-header>
             <mat-card-content>
-                <p>{{group.numContacts}} Contacts</p>  
-                <p>Status:{{group.status}}</p>
+                <!-- <p>{{group.numContacts}} Contacts</p>   -->
+                <p>Status:{{group.active}}</p>
             </mat-card-content>
             <mat-card-actions>
               <button mat-button>pageview</button>

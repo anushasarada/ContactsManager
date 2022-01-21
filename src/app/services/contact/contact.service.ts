@@ -37,8 +37,6 @@ export class ContactService {
   }
 
   findByName(firstname: any): Observable<Contact[]> {
-    console.log("Api hitting from UI while searching")
-    console.log(baseUrl+"?firstname="+firstname)
     return this.http.get<Contact[]>(`${baseUrl}?firstname=${firstname}`);
   }
 }

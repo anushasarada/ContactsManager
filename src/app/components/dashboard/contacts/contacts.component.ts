@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { ActivatedRoute } from '@angular/router';
 import { Contact } from 'src/app/models/contact/contact.model';
 import { ContactService } from 'src/app/services/contact/contact.service';
 
@@ -56,7 +55,6 @@ export class ContactsComponent implements OnInit {
   searchName(): void{
     this.currentContact = {};
     this.currentIndex = -1;
-    console.log("Attempted Search")
     this.contactService.findByName(this.firstname).subscribe({
       next: (data) => {
         this.contacts = data;
