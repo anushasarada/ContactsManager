@@ -13,7 +13,6 @@ import { TokenService } from 'src/app/services/token/token.service';
 })
 export class DashboardComponent implements OnInit {
 
-
   isCurrentRouteDashboard: boolean
   ngOnInit() { }
   @ViewChild(MatSidenav, null)

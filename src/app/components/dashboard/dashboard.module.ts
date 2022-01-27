@@ -2,13 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from "@angular/common/http";
 import { FormsModule } from '@angular/forms';
-import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardComponent } from './dashboard.component';
 import { HomeComponent } from './home/home.component';
 import { GroupsComponent } from './groups/groups.component';
 import { ContactsComponent } from './contacts/contacts.component';
 import { AddGroupComponent } from './add-group/add-group.component';
-
 
 import {MatCardModule} from '@angular/material/card'
 import {MatTabsModule} from '@angular/material/tabs'

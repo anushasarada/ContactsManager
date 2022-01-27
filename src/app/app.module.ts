@@ -26,7 +26,6 @@ import { DashboardModule } from './components/dashboard/dashboard.module';
 import { AddContactComponent } from './components/dashboard/add-contact/add-contact.component';
 
 import { HttpClientModule } from '@angular/common/http';
-//import {authInterceptorProviders} from './_helpers/auth.intercetor'
 
 @NgModule({
   declarations: [
