@@ -14,7 +14,7 @@ export class AppComponent {
 
   isLoggedIn = false;
 
-  constructor(private router: Router,public authenticationService: AuthenticationService, private tokenService: TokenService){  }
+  constructor(private router: Router, public authenticationService: AuthenticationService, private tokenService: TokenService){  }
 
   ngOnInit(): void{
     this.isLoggedIn = !!this.tokenService.getToken();

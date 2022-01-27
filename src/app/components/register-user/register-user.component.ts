@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms'; 
 import { Router } from '@angular/router';
-import { SignInData } from 'src/app/models/signInData';
 import { AuthenticationService } from 'src/app/services/authentication/authentication.service';
 import { TokenService } from 'src/app/services/token/token.service';
 
@@ -12,6 +11,7 @@ import { TokenService } from 'src/app/services/token/token.service';
 })
 export class RegisterUserComponent implements OnInit {
 
+  //Login related data
   loginForm: any = {
     email: null,
     password: null
@@ -21,6 +21,7 @@ export class RegisterUserComponent implements OnInit {
   loginErrorMessage = '';
   roles: string[] = [];
 
+  //Signup related data
   signUpForm: any = {
     email: null,
     password: null
